@@ -1,0 +1,2 @@
+# BingoAlgorithm
+Make algorithm elegant
