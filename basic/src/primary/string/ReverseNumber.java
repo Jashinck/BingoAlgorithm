@@ -12,22 +12,16 @@ public class ReverseNumber {
     }
 
     public static int reverse(int x) {
-        int absValue = x > 0 ? x : x * -1;
-        int countLevel = 0;
-        while (absValue > 0) {
-            absValue /= 10;
-            countLevel++;
-        }
-
-        absValue = x > 0 ? x : x * -1;
         int reverseValue = 0;
-        for (int i = 0; i < countLevel; i++) {
-            int currentValue = absValue % 10;
-            reverseValue += currentValue * Math.pow(10, countLevel - i - 1);
-            absValue /= 10;
-        }
-        if (x < 0) {
-            return reverseValue * -1;
+        while (x != 0) {
+            int currentValue = x % 10;
+            int currentReverse = reverseValue * 10 + currentValue;
+            // 越位
+            if ((currentReverse - currentValue) / 10 != reverseValue) {
+                return 0;
+            }
+            reverseValue = currentReverse;
+            x /= 10;
         }
         return reverseValue;
     }
