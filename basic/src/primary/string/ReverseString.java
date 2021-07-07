@@ -2,6 +2,10 @@ package primary.string;
 
 import java.util.Arrays;
 
+/**
+ * 反转字符串
+ * @author Amboo
+ */
 public class ReverseString {
 
     public static void main(String[] args) {
