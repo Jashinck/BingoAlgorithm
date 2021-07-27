@@ -1,5 +1,7 @@
 package math;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -10,9 +12,20 @@ public class IsPrime {
     public static void main(String[] args){
 
         Random random = new Random();
-        int num = random.nextInt(100);
-        boolean isPrime = isPrime(num);
-        System.out.println("num=" + num + "-isPrime=" + isPrime);
+        int num = 10000;
+        int count = 0;
+        int numIndex = num;
+        List<Integer> arrays = new ArrayList<>();
+        while (numIndex > 1){
+            if(isPrimeB(numIndex)&&numIndex<num){
+                count++;
+                arrays.add(numIndex);
+            }
+            numIndex--;
+        }
+        System.out.println("num=" + num + "-count=" +count);
+//        System.out.println("arrays-" +arrays.toString());
+
     }
 
     private static boolean isPrime(int n) {
@@ -32,4 +45,14 @@ public class IsPrime {
         }
         return true;
     }
+
+    public static boolean isPrimeB(int x) {
+        for (int i = 2; i * i <= x; ++i) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
