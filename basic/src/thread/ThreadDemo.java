@@ -33,8 +33,10 @@ public class ThreadDemo {
             for (int j = 1; j <= MAX_TURN; j++) {
                 thread = new SingleThreadStart(j);
                 thread.start();
-                thread.join();
-                System.out.println("thread-name-" + thread.getName() + "-state-" + thread.getState());
+                System.out.println("thread-name-" + thread.getName() + "-isAlive-" + thread.isAlive() + "-state-" + thread.getState());
+
+                System.out.println(getCurrentThreadName()+"-state-"+Thread.currentThread().getState());
+
             }
         }catch (Exception exception){
             System.out.println(thread.getName() + exception);
