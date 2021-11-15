@@ -29,6 +29,7 @@ public class ThreadDemo {
 
     public static void main(String[] args){
         Thread thread = null;
+        long qrId = Long.parseLong("3503294850709651629\t");
         try {
             for (int j = 1; j <= MAX_TURN; j++) {
                 thread = new SingleThreadStart(j);
